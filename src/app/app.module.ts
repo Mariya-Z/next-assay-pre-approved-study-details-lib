@@ -3,12 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import { NextAssayPreApprovedStudyDetailsLibModule } from 'next-assay-pre-approved-study-details-lib';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    NextAssayPreApprovedStudyDetailsLibModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
