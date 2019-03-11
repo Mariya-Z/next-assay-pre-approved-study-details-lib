@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "next-assay-pre-approved-study-details-lib": [
+        "dist/next-assay-pre-approved-study-details-lib"
+      ],
+      "next-assay-pre-approved-study-details-lib/*": [
+        "dist/next-assay-pre-approved-study-details-lib/*"
+      ]
+    }
   }
 }

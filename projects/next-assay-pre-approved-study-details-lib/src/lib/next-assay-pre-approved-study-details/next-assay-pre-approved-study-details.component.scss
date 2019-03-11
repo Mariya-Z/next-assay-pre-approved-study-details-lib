@@ -1,0 +1,52 @@
+$black: #000;
+$gray: #9D9D9D;
+$blue: #0460A9;
+
+$opacity-transition: opacity .1s cubic-bezier(0, 0, 0.3, 1);
+
+.pre-approved-study-details{
+    position:  relative;
+  
+    & .invisible {
+      opacity: 0;
+      z-index: -1;
+    }
+  
+    & .label {
+      color: $black;
+    }
+  
+    & .value {
+      font-weight: bold;
+      color: $gray;
+  
+      &.active {
+        color: $blue;
+      }
+    }
+  
+    & .field {
+      flex: 1 1 24%;
+      min-width: 22rem;
+      margin: 0 0 1rem 0;
+      border-bottom: 1px solid $gray;
+    }
+  
+    & .float-body{
+      transition: $opacity-transition;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  
+    & .empty-body {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $gray;
+    }
+  }

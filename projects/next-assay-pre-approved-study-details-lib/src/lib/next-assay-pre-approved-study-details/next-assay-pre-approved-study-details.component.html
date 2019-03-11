@@ -1,0 +1,98 @@
+<section class="pre-approved-study-details">
+  <section class="float-body">
+    <div class="field protocol" *ngIf="isFullVersion">
+      <div class="label">Protocol #</div>
+      <div class="value active">{{data.protocol}}&nbsp;</div>
+    </div>
+    <div class="field species" *ngIf="isFullVersion">
+      <div class="label">Species</div>
+      <div class="value active">{{data.species}}&nbsp;</div>
+    </div>
+    <div class="field route-of-administration" *ngIf="isFullVersion">
+      <div class="label">Route of administration</div>
+      <div class="value active">{{data.route}}&nbsp;</div>
+    </div>
+    <div class="field iv-dose" *ngIf="isFullVersion">
+      <div class="label">IV Dose per compound (mg/kg)</div>
+      <div class="value" [class.active]="data.ivDose > 0">{{data.ivDose}}&nbsp;</div> <!-- | studyNaDisplay -->
+    </div>
+    <div class="field po-dose" *ngIf="isFullVersion">
+      <div class="label">PO Dose per compound (mg/kg)</div>
+      <div class="value" [class.active]="data.poDose > 0">{{data.poDose}}&nbsp;</div> <!-- | studyNaDisplay -->
+    </div>
+    <div class="field number-per-arm">
+      <div class="label">Number per arm</div>
+      <div class="value active">{{data.numberPerArms}}&nbsp;</div>
+    </div>
+    <div class="field crossover">
+      <div class="label">Crossover</div>
+      <div class="value" [class.active]="data.crossover">{{data.crossover}}&nbsp;</div>  
+      <!-- | studyCrossoverDisplay -->
+    </div>
+    <div class="field cassette">
+      <div class="label">Cassette</div>
+      <div class="value" [class.active]="data.cassette">{{data.cassette ? 'TRUE' : 'FALSE'}}&nbsp;</div>
+    </div>
+    <div class="field strain">
+      <div class="label">Strain</div>
+      <div class="value active">{{data.strain}}&nbsp;</div>
+    </div>
+    <div class="field gender">
+      <div class="label">Gender</div>
+      <div class="value active">{{data.gender}}&nbsp;</div>
+    </div>
+    <div class="field animal-model">
+      <div class="label">Animal Model</div>
+      <div class="value active">{{data.animalModel}}&nbsp;</div>
+    </div>
+    <div class="field food-status">
+      <div class="label">Food Status (all arms)</div>
+      <div class="value active">{{data.food}}&nbsp;</div>
+    </div>
+    <div class="field matrix">
+      <div class="label">Matrix</div>
+      <div class="value active">{{data.matrix}}&nbsp;</div>
+    </div>
+    <div class="field anticoagulant">
+      <div class="label">Anticoagulant</div>
+      <div class="value active">{{data.anticoagulant}}&nbsp;</div>
+    </div>
+    <div class="field volume">
+      <div class="label">Sample Volume (uL)</div>
+      <div class="value active">{{data.sampleVolume}}&nbsp;</div>
+    </div>
+    <div class="field iv-dose-volume">
+      <div class="label">IV Dose Volume (mL/kg)</div>
+      <div class="value" [class.active]="data.ivDoseVolume !== stringNAValue">{{data.ivDoseVolume}}&nbsp;</div>
+    </div>
+    <div class="field po-dose-volume">
+      <div class="label">PO Dose Volume (mL/kg)</div>
+      <div class="value" [class.active]="data.poDoseVolume !== stringNAValue">{{data.poDoseVolume}}&nbsp;</div>
+    </div>
+    <div class="field iv-form">
+      <div class="label">IV Dosage Form</div>
+      <div class="value" [class.active]="data.ivFormulation !== stringNAValue">{{data.ivFormulation}}&nbsp;</div>
+    </div>
+    <div class="field po-form">
+      <div class="label">PO Dosage Form</div>
+      <div class="value" [class.active]="data.poFormulation !== stringNAValue">{{data.poFormulation}}&nbsp;</div>
+    </div>
+    <div class="field iv-vehicle">
+      <div class="label">IV Vehicle</div>
+      <div class="value" [class.active]="data.ivVehicle !== stringNAValue">{{data.ivVehicle}}&nbsp;</div>
+    </div>
+    <div class="field po-vehicle" *ngIf="isFullVersion">
+      <div class="label">PO Vehicle</div>
+      <div class="value" [class.active]="data.poVehicle !== stringNAValue">{{data.poVehicle}}&nbsp;</div>
+    </div>
+    <div class="field iv-timepoints">
+      <div class="label">IV Timepoints (hr)</div>
+      <div class="value" [class.active]="data.ivTimePoints !== stringNAValue">{{data.ivTimePoints}}&nbsp;</div>
+    </div>
+    <div class="field po-timepoints">
+      <div class="label">PO Timepoints (hr)</div>
+      <div class="value" [class.active]="data.poTimePoints !== stringNAValue">{{data.poTimePoints}}&nbsp;</div>
+    </div>
+    <div class="field"></div>
+  </section>
+</section>
