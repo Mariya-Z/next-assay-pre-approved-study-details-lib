@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { NextAssayPreApprovedStudyDetailsLibModule } from 'next-assay-pre-approved-study-details-lib';
+import { NextAssayPreApprovedStudyDetailsLibModule } from 'next-assay-pre-approved-study-details';
 
 @NgModule({
   declarations: [

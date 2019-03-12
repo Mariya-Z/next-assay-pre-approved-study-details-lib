@@ -1,6 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import {NextAssayPreApprovedStudyDetailsLibModule} from 'next-assay-pre-approved-study-details-lib';
+import {NextAssayPreApprovedStudyDetailsLibModule} from 'next-assay-pre-approved-study-details';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
