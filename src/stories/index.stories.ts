@@ -7,7 +7,12 @@ import oneText from './one.md';
 import twoText from './two.md';
 import threeText from './three.md';
 
-import { NextAssayPreApprovedStudyDetailsComponent } from '../../projects/next-assay-pre-approved-study-details-lib/src/public_api';
+import { NextAssayPreApprovedStudyDetailsComponent } from '../../projects/next-assay-pre-approved-study-details/src/public_api';
+
+// tslint:disable-next-line: max-line-length
+import {StudyNaDisplayPipe} from '../../projects/next-assay-pre-approved-study-details/src/lib/pipes/study-na-display.pipe'; // pipes/study-crossover-display.pipe';
+import { StudyCrossoverDisplayPipe } from '../../projects/next-assay-pre-approved-study-details/src/lib/pipes/study-crossover-display.pipe';
+
 
 const styles = `
   <style>
@@ -23,10 +28,41 @@ const styles = `
   </style>
 `;
 
+const data = {
+  'protocol' : 1,
+  'species' : 'mouse',
+  'discreteAllowed' : true,
+  'cassette' : true,
+  'route' : 'i.v.',
+  'ivDose' : 0.1,
+  'poDose' : 'null',
+  'numberPerArms' : 3,
+  'crossover' : 'null',
+  'strain' : 'C57BL/6',
+  'gender' : 'Male',
+  'food' : 'Fed',
+  'matrix' : 'Blood',
+  'sampleVolume' : '20',
+  'ivDoseVolume' : '5',
+  'poDoseVolume' : '',
+  'ivFormulation' : 'Solution',
+  'poFormulation' : '',
+  'ivVehicle' : 'NMP:4%BSA in PBS (10:90)',
+  'poVehicle' : '',
+  'ivTimePoints' : '0.083,0.25,0.5,1,3,7,24',
+  'poTimePoints' : '',
+  'animalModel' : 'Puncture of the tail vein',
+  'studyModel' : 'Serial sampling',
+  'anticoagulant' : 'EDTA',
+  'avgBodyWeight' : '0.05',
+  'overage' : '0.2',
+  'sf' : 'per compound from SMR'
+};
+
 storiesOf('Next-assay', module)
 .addDecorator(
   moduleMetadata({
-    declarations: [NextAssayPreApprovedStudyDetailsComponent],
+    declarations: [NextAssayPreApprovedStudyDetailsComponent, StudyNaDisplayPipe, StudyCrossoverDisplayPipe],
   })
 )
 .add('Install',
@@ -38,7 +74,7 @@ storiesOf('Next-assay', module)
     [data]="data"
   ></next-assay-pre-approved-study-details>
   `,
-  props: {},
+  props: {data},
 }))
 )
 .add('3 columns',
@@ -52,7 +88,7 @@ storiesOf('Next-assay', module)
     ></next-assay-pre-approved-study-details>
   </div>
   `,
-  props: {},
+  props: {data},
 }))
 )
 .add('2 columns',
@@ -66,7 +102,7 @@ storiesOf('Next-assay', module)
     ></next-assay-pre-approved-study-details>
   </div>
   `,
-  props: {},
+  props: {data},
 }))
 )
 .add('1 column',
@@ -80,6 +116,6 @@ storiesOf('Next-assay', module)
     ></next-assay-pre-approved-study-details>
   </div>
   `,
-  props: {},
+  props: {data},
 }))
 );
