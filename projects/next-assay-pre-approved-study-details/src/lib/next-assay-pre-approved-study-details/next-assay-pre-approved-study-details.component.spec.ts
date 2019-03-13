@@ -1,8 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {Pipe, PipeTransform, Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import {By } from '@angular/platform-browser';
 
-import { NextAssayPreApprovedStudyDetailsComponent } from './next-assay-pre-approved-study-details.component';
-import { Pipe, PipeTransform, Component, NO_ERRORS_SCHEMA } from '@angular/core';
-import { By } from '@angular/platform-browser';
+import {NextAssayPreApprovedStudyDetailsComponent} from './next-assay-pre-approved-study-details.component';
+import {PasEntry} from '../types/backend-types';
+import {STUDY_WIZARD_STRING_NA_VALUE} from '../study-customization/mock-data';
+
+
 
 @Pipe({name: 'studyNaDisplay'})
 class StudyNaDisplayMock implements PipeTransform {
@@ -48,8 +52,6 @@ describe('Component: Assay PreApproved Study Details Component', () => {
 
     // get test component from the fixture
     componentInstance = fixture.componentInstance;
-    // component = fixture.componentInstance;
-    // fixture.detectChanges();
   });
 
   afterEach(() => fixture.destroy());
@@ -58,7 +60,7 @@ describe('Component: Assay PreApproved Study Details Component', () => {
     expect(componentInstance).toBeDefined();
   });
 
-  xit('component should has stringNAValue', () => {
+  it('component should has stringNAValue', () => {
     expect(componentInstance.stringNAValue).toBe(STUDY_WIZARD_STRING_NA_VALUE);
   });
 

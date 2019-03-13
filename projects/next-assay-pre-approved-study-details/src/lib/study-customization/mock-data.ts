@@ -1,0 +1,2 @@
+export const STUDY_WIZARD_NUMBER_NA_VALUE = -1;
+export const STUDY_WIZARD_STRING_NA_VALUE = 'N/A';
