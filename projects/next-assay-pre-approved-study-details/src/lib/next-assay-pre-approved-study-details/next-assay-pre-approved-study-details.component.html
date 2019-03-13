@@ -14,11 +14,11 @@
     </div>
     <div class="field iv-dose" *ngIf="isFullVersion">
       <div class="label">IV Dose per compound (mg/kg)</div>
-      <div class="value" [class.active]="data.ivDose > 0">{{data.ivDose}}&nbsp;</div> <!-- | studyNaDisplay -->
+      <div class="value" [class.active]="data.ivDose > 0">{{data.ivDose | studyNaDisplay}}&nbsp;</div>
     </div>
     <div class="field po-dose" *ngIf="isFullVersion">
       <div class="label">PO Dose per compound (mg/kg)</div>
-      <div class="value" [class.active]="data.poDose > 0">{{data.poDose}}&nbsp;</div> <!-- | studyNaDisplay -->
+      <div class="value" [class.active]="data.poDose > 0">{{data.poDose | studyNaDisplay}}&nbsp;</div>
     </div>
     <div class="field number-per-arm">
       <div class="label">Number per arm</div>
@@ -26,8 +26,7 @@
     </div>
     <div class="field crossover">
       <div class="label">Crossover</div>
-      <div class="value" [class.active]="data.crossover">{{data.crossover}}&nbsp;</div>  
-      <!-- | studyCrossoverDisplay -->
+      <div class="value" [class.active]="data.crossover">{{data.crossover | studyCrossoverDisplay}}&nbsp;</div>  
     </div>
     <div class="field cassette">
       <div class="label">Cassette</div>

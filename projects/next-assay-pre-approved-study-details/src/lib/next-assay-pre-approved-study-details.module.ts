@@ -1,12 +1,14 @@
-import { NgModule } from '@angular/core';
-// tslint:disable-next-line:max-line-length
-import { NextAssayPreApprovedStudyDetailsComponent } from './next-assay-pre-approved-study-details/next-assay-pre-approved-study-details.component';
-import {PipesModule} from './pipes/pipes.module';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { CommonModule } from '@angular/common';
+// tslint:disable-next-line:max-line-length
+import {NextAssayPreApprovedStudyDetailsComponent} from './next-assay-pre-approved-study-details/next-assay-pre-approved-study-details.component';
+import {StudyCrossoverDisplayPipe} from './pipes/study-crossover-display.pipe';
+import {StudyNaDisplayPipe} from './pipes/study-na-display.pipe';
+
 
 @NgModule({
-  imports: [CommonModule, PipesModule],
+  imports: [CommonModule, StudyCrossoverDisplayPipe, StudyNaDisplayPipe],
   exports: [NextAssayPreApprovedStudyDetailsComponent],
   declarations: [NextAssayPreApprovedStudyDetailsComponent],
   entryComponents: [NextAssayPreApprovedStudyDetailsComponent],
