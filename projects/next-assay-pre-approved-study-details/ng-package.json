@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../dist/next-assay-pre-approved-study-details-lib",
+  "dest": "../../dist/next-assay-pre-approved-study-details",
   "lib": {
     "entryFile": "src/public_api.ts"
   }
