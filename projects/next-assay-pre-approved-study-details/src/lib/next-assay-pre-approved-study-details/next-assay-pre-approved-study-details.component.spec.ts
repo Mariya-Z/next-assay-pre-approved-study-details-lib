@@ -1,12 +1,10 @@
-import {async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {Pipe, PipeTransform, Component, NO_ERRORS_SCHEMA } from '@angular/core';
-import {By } from '@angular/platform-browser';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {Pipe, PipeTransform, Component, NO_ERRORS_SCHEMA} from '@angular/core';
+import {By} from '@angular/platform-browser';
 
 import {NextAssayPreApprovedStudyDetailsComponent} from './next-assay-pre-approved-study-details.component';
 import {PasEntry} from '../types/backend-types';
 import {STUDY_WIZARD_STRING_NA_VALUE} from '../study-customization/mock-data';
-
-
 
 @Pipe({name: 'studyNaDisplay'})
 class StudyNaDisplayMock implements PipeTransform {
@@ -22,32 +20,30 @@ class StudyCrossoverDisplayMock implements PipeTransform {
   }
 }
 
-const pipes = [
-  StudyNaDisplayMock,
-  StudyCrossoverDisplayMock,
-];
+const pipes = [StudyNaDisplayMock, StudyCrossoverDisplayMock];
 
 describe('Component: Assay PreApproved Study Details Component', () => {
-
   @Component({
     template: '<assay-pre-approved-study-details></assay-pre-approved-study-details>',
   })
-  class NextAssayPreApprovedStudyDetailsEmptyHostComponent {
-  }
+  class NextAssayPreApprovedStudyDetailsEmptyHostComponent {}
 
   let componentInstance: NextAssayPreApprovedStudyDetailsComponent;
   let fixture;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [NextAssayPreApprovedStudyDetailsEmptyHostComponent, NextAssayPreApprovedStudyDetailsComponent, ...pipes],
+      declarations: [
+        NextAssayPreApprovedStudyDetailsEmptyHostComponent,
+        NextAssayPreApprovedStudyDetailsComponent,
+        ...pipes,
+      ],
       schemas: [NO_ERRORS_SCHEMA],
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-     // create component and test fixture
+    // create component and test fixture
     fixture = TestBed.createComponent(NextAssayPreApprovedStudyDetailsComponent);
 
     // get test component from the fixture
@@ -77,7 +73,8 @@ describe('', () => {
       <assay-pre-approved-study-details
         [data]="data"
         [isFullVersion]="isFullVersion"
-      ></assay-pre-approved-study-details>`,
+      ></assay-pre-approved-study-details>
+    `,
   })
   class NextAssayPreApprovedStudyDetailsHostComponent {
     data: PasEntry;
@@ -86,11 +83,14 @@ describe('', () => {
 
   beforeEach(async(() => {
     // refine the test module by declaring the test component
-    TestBed
-      .configureTestingModule({
-        declarations: [NextAssayPreApprovedStudyDetailsHostComponent, NextAssayPreApprovedStudyDetailsComponent, ...pipes],
-        schemas: [NO_ERRORS_SCHEMA]
-      }).compileComponents();
+    TestBed.configureTestingModule({
+      declarations: [
+        NextAssayPreApprovedStudyDetailsHostComponent,
+        NextAssayPreApprovedStudyDetailsComponent,
+        ...pipes,
+      ],
+      schemas: [NO_ERRORS_SCHEMA],
+    }).compileComponents();
   }));
 
   let fixture;
@@ -115,12 +115,7 @@ describe('', () => {
     const ivDose = fixture.debugElement.query(By.css('.iv-dose'));
     const poDose = fixture.debugElement.query(By.css('.po-dose'));
     const poVehicle = fixture.debugElement.query(By.css('.po-vehicle'));
-    expect([protocol,
-      species,
-      routeOfAdministration,
-      ivDose,
-      poDose,
-      poVehicle].filter(i => i)).toEqual([]);
+    expect([protocol, species, routeOfAdministration, ivDose, poDose, poVehicle].filter((i) => i)).toEqual([]);
   });
 
   xit('should show additional fields when isFullData = true', () => {
@@ -134,12 +129,7 @@ describe('', () => {
     const ivDose = fixture.debugElement.query(By.css('.iv-dose'));
     const poDose = fixture.debugElement.query(By.css('.po-dose'));
     const poVehicle = fixture.debugElement.query(By.css('.po-vehicle'));
-    expect([protocol,
-      species,
-      routeOfAdministration,
-      ivDose,
-      poDose,
-      poVehicle].filter(i => i).length).toBe(6);
+    expect([protocol, species, routeOfAdministration, ivDose, poDose, poVehicle].filter((i) => i).length).toBe(6);
   });
 
   xit('on extended component should be 24 fields ', () => {
@@ -159,6 +149,4 @@ describe('', () => {
     const fields = fixture.debugElement.queryAll(By.css('.field'));
     expect(fields.length).toBe(18);
   });
-
-
 });
