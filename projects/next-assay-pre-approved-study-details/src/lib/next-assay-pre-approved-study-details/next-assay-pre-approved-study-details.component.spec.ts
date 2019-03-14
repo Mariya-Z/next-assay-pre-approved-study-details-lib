@@ -8,14 +8,15 @@ import {STUDY_WIZARD_STRING_NA_VALUE} from '../study-customization/mock-data';
 
 @Pipe({name: 'studyNaDisplay'})
 class StudyNaDisplayMock implements PipeTransform {
-  transform(i): any {
+  public transform(i): any {
     return i;
   }
 }
 
+// tslint:disable-next-line:max-classes-per-file
 @Pipe({name: 'studyCrossoverDisplay'})
 class StudyCrossoverDisplayMock implements PipeTransform {
-  transform(i): any {
+  public transform(i): any {
     return i;
   }
 }
@@ -23,8 +24,9 @@ class StudyCrossoverDisplayMock implements PipeTransform {
 const pipes = [StudyNaDisplayMock, StudyCrossoverDisplayMock];
 
 describe('Component: Assay PreApproved Study Details Component', () => {
+  // tslint:disable-next-line:max-classes-per-file
   @Component({
-    template: '<assay-pre-approved-study-details></assay-pre-approved-study-details>',
+    template: '<next-assay-pre-approved-study-details></next-assay-pre-approved-study-details>',
   })
   class NextAssayPreApprovedStudyDetailsEmptyHostComponent {}
 
@@ -63,22 +65,23 @@ describe('Component: Assay PreApproved Study Details Component', () => {
   it('should be possible to create empty component', () => {
     fixture = TestBed.createComponent(NextAssayPreApprovedStudyDetailsEmptyHostComponent);
     const componentTemplate = fixture.debugElement.query(By.css('.float-body'));
-    expect(componentTemplate).toBeNull();
+    expect(componentTemplate.context.data).toBeNull();
   });
 });
 
 describe('', () => {
+  // tslint:disable-next-line:max-classes-per-file
   @Component({
     template: `
-      <assay-pre-approved-study-details
+      <next-assay-pre-approved-study-details
         [data]="data"
         [isFullVersion]="isFullVersion"
-      ></assay-pre-approved-study-details>
+      ></next-assay-pre-approved-study-details>
     `,
   })
   class NextAssayPreApprovedStudyDetailsHostComponent {
-    data: PasEntry;
-    isFullVersion = false;
+    public data: PasEntry;
+    public isFullVersion = false;
   }
 
   beforeEach(async(() => {
@@ -93,8 +96,7 @@ describe('', () => {
     }).compileComponents();
   }));
 
-  let fixture;
-  afterEach(() => fixture.destroy());
+  let fixture: ComponentFixture<NextAssayPreApprovedStudyDetailsHostComponent>;
 
   it('should not fail with invalid data', () => {
     fixture = TestBed.createComponent(NextAssayPreApprovedStudyDetailsHostComponent);
@@ -118,7 +120,7 @@ describe('', () => {
     expect([protocol, species, routeOfAdministration, ivDose, poDose, poVehicle].filter((i) => i)).toEqual([]);
   });
 
-  xit('should show additional fields when isFullData = true', () => {
+  it('should show additional fields when isFullData = true', () => {
     fixture = TestBed.createComponent(NextAssayPreApprovedStudyDetailsHostComponent);
     fixture.componentInstance.data = {} as PasEntry;
     fixture.componentInstance.isFullVersion = true;
@@ -132,7 +134,7 @@ describe('', () => {
     expect([protocol, species, routeOfAdministration, ivDose, poDose, poVehicle].filter((i) => i).length).toBe(6);
   });
 
-  xit('on extended component should be 24 fields ', () => {
+  it('on extended component should be 24 fields ', () => {
     fixture = TestBed.createComponent(NextAssayPreApprovedStudyDetailsHostComponent);
     fixture.componentInstance.data = {} as PasEntry;
     fixture.componentInstance.isFullVersion = true;
@@ -141,7 +143,7 @@ describe('', () => {
     expect(fields.length).toBe(24);
   });
 
-  xit('on collapsed component should be 18 fields ', () => {
+  it('on collapsed component should be 18 fields ', () => {
     fixture = TestBed.createComponent(NextAssayPreApprovedStudyDetailsHostComponent);
     fixture.componentInstance.data = {} as PasEntry;
     fixture.componentInstance.isFullVersion = false;
