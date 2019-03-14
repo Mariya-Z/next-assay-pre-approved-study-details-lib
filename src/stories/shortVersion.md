@@ -1,8 +1,6 @@
-## Two columns
+## Short version
 
-Number of represented columns depend of width wrap
-
-If wrap width is 1055-704px, there will be two columns
+Paraments protocol, species, discreteAllowed, cassette, route, ivDose, poDose are optional. If isFullVersion is false, these parametrs wouldn't be shown
 
 ### Tempalte for this example looks like code below
 
@@ -21,6 +19,7 @@ If wrap width is 1055-704px, there will be two columns
     <div class="two-columns">
         <next-assay-pre-approved-study-details
             [data]="data"
+            [isFullVersion]=false
         ></next-assay-pre-approved-study-details>
     </div>
 </div>

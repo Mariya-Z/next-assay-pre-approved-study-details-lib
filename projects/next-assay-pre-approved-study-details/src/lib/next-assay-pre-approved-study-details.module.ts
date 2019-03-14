@@ -12,4 +12,4 @@ import {StudyNaDisplayPipe} from './pipes/study-na-display.pipe';
   declarations: [NextAssayPreApprovedStudyDetailsComponent, StudyCrossoverDisplayPipe, StudyNaDisplayPipe],
   entryComponents: [NextAssayPreApprovedStudyDetailsComponent],
 })
-export class NextAssayPreApprovedStudyDetailsLibModule {}
+export class NextAssayPreApprovedStudyDetailsModule {}

@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "private": true,
   "dependencies": {
@@ -38,6 +39,7 @@
     "@storybook/addon-options": "^5.0.1",
     "@storybook/addon-viewport": "^5.0.1",
     "@storybook/angular": "^5.0.1",
+    "@storybook/storybook-deployer": "^2.8.1",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
