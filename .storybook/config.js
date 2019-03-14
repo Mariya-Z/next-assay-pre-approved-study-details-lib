@@ -7,7 +7,7 @@ addDecorator(
     url: '#',
     goFullScreen: false,
     showStoriesPanel: true,
-    showAddonPanel: true,
+    showAddonPanel: false,
     showSearchBox: false,
     addonPanelInRight: true,
     sortStoriesByKind: false,

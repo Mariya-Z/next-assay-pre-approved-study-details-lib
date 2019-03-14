@@ -1,121 +1,153 @@
-import { storiesOf, moduleMetadata } from '@storybook/angular';
-import { withNotes } from '@storybook/addon-notes';
+import {storiesOf, moduleMetadata} from '@storybook/angular';
 
-import * as marked from 'marked';
 import defaultText from './default.md';
 import oneText from './one.md';
 import twoText from './two.md';
 import threeText from './three.md';
+import shortVersion from './shortVersion.md';
 
-import { NextAssayPreApprovedStudyDetailsComponent } from '../../projects/next-assay-pre-approved-study-details/src/public_api';
+// tslint:disable-next-line:max-line-length
+import {NextAssayPreApprovedStudyDetailsComponent} from '../../projects/next-assay-pre-approved-study-details/src/public_api';
 
 // tslint:disable-next-line: max-line-length
 import {StudyNaDisplayPipe} from '../../projects/next-assay-pre-approved-study-details/src/lib/pipes/study-na-display.pipe'; // pipes/study-crossover-display.pipe';
-import { StudyCrossoverDisplayPipe } from '../../projects/next-assay-pre-approved-study-details/src/lib/pipes/study-crossover-display.pipe';
+// tslint:disable-next-line:max-line-length
+import {StudyCrossoverDisplayPipe} from '../../projects/next-assay-pre-approved-study-details/src/lib/pipes/study-crossover-display.pipe';
 
+const data = {
+  protocol: 1,
+  species: 'mouse',
+  discreteAllowed: true,
+  cassette: true,
+  route: 'i.v.',
+  ivDose: 0.1,
+  poDose: null,
+  numberPerArms: 3,
+  crossover: null,
+  strain: 'C57BL/6',
+  gender: 'Male',
+  food: 'Fed',
+  matrix: 'Blood',
+  sampleVolume: '20',
+  ivDoseVolume: '5',
+  poDoseVolume: '',
+  ivFormulation: 'Solution',
+  poFormulation: '',
+  ivVehicle: 'NMP:4%BSA in PBS (10:90)',
+  poVehicle: '',
+  ivTimePoints: '0.083,0.25,0.5,1,3,7,24',
+  poTimePoints: '',
+  animalModel: 'Puncture of the tail vein',
+  studyModel: 'Serial sampling',
+  anticoagulant: 'EDTA',
+  avgBodyWeight: '0.05',
+  overage: '0.2',
+  sf: 'per compound from SMR',
+};
 
 const styles = `
   <style>
-  .m \{
-    width: 1400px;
+  .three-columns \{
+    width: 1060px;
   \}
-  .s \{
-    width: 1050px;
+  .two-columns \{
+    width: 704px;
   \}
-  .xs \{
-    width: 700px;
+  .one-column \{
+    width: 300px;
+  \}
+  .container \{
+    display: flex;
+    justify-content: center;
   \}
   </style>
 `;
 
-const data = {
-  'protocol' : 1,
-  'species' : 'mouse',
-  'discreteAllowed' : true,
-  'cassette' : true,
-  'route' : 'i.v.',
-  'ivDose' : 0.1,
-  'poDose' : 'null',
-  'numberPerArms' : 3,
-  'crossover' : 'null',
-  'strain' : 'C57BL/6',
-  'gender' : 'Male',
-  'food' : 'Fed',
-  'matrix' : 'Blood',
-  'sampleVolume' : '20',
-  'ivDoseVolume' : '5',
-  'poDoseVolume' : '',
-  'ivFormulation' : 'Solution',
-  'poFormulation' : '',
-  'ivVehicle' : 'NMP:4%BSA in PBS (10:90)',
-  'poVehicle' : '',
-  'ivTimePoints' : '0.083,0.25,0.5,1,3,7,24',
-  'poTimePoints' : '',
-  'animalModel' : 'Puncture of the tail vein',
-  'studyModel' : 'Serial sampling',
-  'anticoagulant' : 'EDTA',
-  'avgBodyWeight' : '0.05',
-  'overage' : '0.2',
-  'sf' : 'per compound from SMR'
-};
-
-storiesOf('Next-assay', module)
-.addDecorator(
-  moduleMetadata({
-    declarations: [NextAssayPreApprovedStudyDetailsComponent, StudyNaDisplayPipe, StudyCrossoverDisplayPipe],
-  })
-)
-.add('Install',
-  withNotes({text: marked(defaultText)})
-(() => ({
-  template: `
-  ${styles}
-  <next-assay-pre-approved-study-details
-    [data]="data"
-  ></next-assay-pre-approved-study-details>
+storiesOf('Next-assay-pre-approved-study-details', module)
+  .addDecorator(
+    moduleMetadata({
+      declarations: [NextAssayPreApprovedStudyDetailsComponent, StudyNaDisplayPipe, StudyCrossoverDisplayPipe],
+    }),
+  )
+  .add(
+    'Install',
+    (() => ({
+      template: `
+      ${styles}
+      <next-assay-pre-approved-study-details
+        [data]="data"
+      ></next-assay-pre-approved-study-details>
+      `,
+      props: {data},
+    })),
+    {notes: defaultText},
+  )
+  .add(
+    'With 3 columns',
+    (() => ({
+      template: `
+      ${styles}
+      <div class="container">
+        <div class="three-columns container">
+          <next-assay-pre-approved-study-details
+            [data]="data"
+          ></next-assay-pre-approved-study-details>
+        </div>
+      </div>
+      `,
+      props: {data},
+    })),
+    {notes: threeText},
+  )
+  .add(
+    'With 2 columns',
+    (() => ({
+      template: `
+      ${styles}
+      <div class="container">
+        <div class="two-columns">
+          <next-assay-pre-approved-study-details
+            [data]="data"
+          ></next-assay-pre-approved-study-details>
+        </div>
+      </div>
+      `,
+      props: {data},
+    })),
+    {notes: twoText},
+  )
+  .add(
+    'With 1 column',
+    (() => ({
+      template: `
+      ${styles}
+      <div class="container">
+        <div class="one-column">
+          <next-assay-pre-approved-study-details
+            [data]="data"
+          ></next-assay-pre-approved-study-details>
+        </div>
+      </div>
+      `,
+      props: {data},
+    })),
+    {notes: oneText},
+  )
+  .add(
+    'Short version',
+    (() => ({
+      template: `
+      ${styles}
+      <div class="container">
+        <div class="two-columns">
+          <next-assay-pre-approved-study-details
+            [data]="data"
+            [isFullVersion]=false
+          ></next-assay-pre-approved-study-details>
+        </div>
+      </div>
   `,
-  props: {data},
-}))
-)
-.add('3 columns',
-  withNotes({text: marked(threeText)})
-(() => ({
-  template: `
-  ${styles}
-  <div class="m">
-    <next-assay-pre-approved-study-details
-      [data]="data"
-    ></next-assay-pre-approved-study-details>
-  </div>
-  `,
-  props: {data},
-}))
-)
-.add('2 columns',
-  withNotes({text: marked(twoText)})
-(() => ({
-  template: `
-  ${styles}
-  <div class="s">
-    <next-assay-pre-approved-study-details
-      [data]="data"
-    ></next-assay-pre-approved-study-details>
-  </div>
-  `,
-  props: {data},
-}))
-)
-.add('1 column',
-  withNotes({text: marked(oneText)})
-(() => ({
-  template: `
-  ${styles}
-  <div class="xs">
-    <next-assay-pre-approved-study-details
-      [data]="data"
-    ></next-assay-pre-approved-study-details>
-  </div>
-  `,
-  props: {data},
-}))
-);
+      props: {data},
+    })),
+    {notes: shortVersion},
+  );

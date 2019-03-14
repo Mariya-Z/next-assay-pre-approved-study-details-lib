@@ -1,19 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 
-import { NextAssayPreApprovedStudyDetailsLibModule } from 'next-assay-pre-approved-study-details';
+import {NextAssayPreApprovedStudyDetailsModule} from 'next-assay-pre-approved-study-details';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule,
-    NextAssayPreApprovedStudyDetailsLibModule,
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, NextAssayPreApprovedStudyDetailsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
