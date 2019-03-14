@@ -7,9 +7,9 @@ import {StudyCrossoverDisplayPipe} from './pipes/study-crossover-display.pipe';
 import {StudyNaDisplayPipe} from './pipes/study-na-display.pipe';
 
 @NgModule({
-  imports: [CommonModule, StudyCrossoverDisplayPipe, StudyNaDisplayPipe],
+  imports: [CommonModule],
   exports: [NextAssayPreApprovedStudyDetailsComponent],
-  declarations: [NextAssayPreApprovedStudyDetailsComponent],
+  declarations: [NextAssayPreApprovedStudyDetailsComponent, StudyCrossoverDisplayPipe, StudyNaDisplayPipe],
   entryComponents: [NextAssayPreApprovedStudyDetailsComponent],
 })
 export class NextAssayPreApprovedStudyDetailsLibModule {}
