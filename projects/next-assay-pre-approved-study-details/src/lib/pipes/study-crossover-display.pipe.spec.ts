@@ -27,5 +27,6 @@ describe('Pipe: studyCrossoverDisplay', () => {
   it('pipe gets not bool values and returns them', () => {
     expect(studyCrossoverDisplay.transform(null)).toBe(null);
     expect(studyCrossoverDisplay.transform('string')).toBe('string');
+    expect(studyCrossoverDisplay.transform(123)).toBe(123);
   });
 });

@@ -16,12 +16,15 @@ describe('Pipe: NA display', () => {
 
   it('pipe should transform value', () => {
     expect(studyNaDisplay.transform(-1)).toEqual(STUDY_WIZARD_STRING_NA_VALUE);
+    expect(studyNaDisplay.transform('-1')).toEqual(STUDY_WIZARD_STRING_NA_VALUE);
     expect(studyNaDisplay.transform(STUDY_WIZARD_NUMBER_NA_VALUE)).toEqual(STUDY_WIZARD_STRING_NA_VALUE);
   });
 
   it('pipe should not change these values', () => {
       expect(studyNaDisplay.transform(0.1)).toBe(0.1);
       expect(studyNaDisplay.transform(1)).toBe(1);
-      expect(studyNaDisplay.transform(0.3)).toBe(0.3);
+      expect(studyNaDisplay.transform(true)).toBe(true);
+      expect(studyNaDisplay.transform(false)).toBe(false);
+      expect(studyNaDisplay.transform('string')).toBe('string');
   });
 });
