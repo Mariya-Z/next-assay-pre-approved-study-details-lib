@@ -10,7 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build_lib": "ng build next-assay-pre-approved-study-details",
-    "npm_pack": "cd dist/next-assay-pre-approved-study-details && npm pack",
+    "npm_pack": "cd dist/next-assay-pre-approved-study-details && npm pack && npm run build_lib",
     "postinstall": "npm run npm_pack",
     "bump": "cd projects/next-assay-pre-approved-study-details && yarn version --patch",
     "package": "yarn bump && yarn build_lib && yarn npm_pack",
