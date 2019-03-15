@@ -12,7 +12,5 @@ export class NextAssayPreApprovedStudyDetailsComponent {
   @Input() public data: PasEntry = null;
   @Input() public isFullVersion = true;
 
-  public get stringNAValue(): string {
-    return STUDY_WIZARD_STRING_NA_VALUE;
-  }
+  public stringNAValue = STUDY_WIZARD_STRING_NA_VALUE;
 }

@@ -8,7 +8,7 @@ import {StudyNaDisplayPipe} from './pipes/study-na-display.pipe';
 
 @NgModule({
   imports: [CommonModule],
-  exports: [NextAssayPreApprovedStudyDetailsComponent, StudyCrossoverDisplayPipe, StudyNaDisplayPipe],
+  exports: [NextAssayPreApprovedStudyDetailsComponent],
   declarations: [NextAssayPreApprovedStudyDetailsComponent, StudyCrossoverDisplayPipe, StudyNaDisplayPipe],
   entryComponents: [NextAssayPreApprovedStudyDetailsComponent],
 })
